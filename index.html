@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PANEL BY KIZARU</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-image: url('https://i.postimg.cc/CLJ8dBS3/16695440-28b4-44b7-9110-c63a4df590ce.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            position: relative;
+        }
+        
+        .hologram-effect {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, #00fffc, #fc00ff, #00fffc);
+            border-radius: 50%;
+            filter: blur(50px);
+            opacity: 0.3;
+            z-index: -1;
+            animation: rotate 8s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #00fffc, #fc00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+        
+        .contact-info {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border: 1px solid #00fffc;
+            box-shadow: 0 0 15px rgba(0, 255, 252, 0.3);
+        }
+        
+        .contact-info p {
+            margin: 5px 0;
+        }
+        
+        .contact-info a {
+            color: #00fffc;
+            text-decoration: none;
+        }
+        
+        .price-lists {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .price-card {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            border: 1px solid #fc00ff;
+            box-shadow: 0 0 15px rgba(252, 0, 255, 0.3);
+            transition: transform 0.3s;
+        }
+        
+        .price-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .price-card h3 {
+            color: #fc00ff;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+        }
+        
+        .order-form {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            border: 1px solid #00fffc;
+            box-shadow: 0 0 20px rgba(0, 255, 252, 0.3);
+        }
+        
+        .order-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #00fffc;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .form-group input, 
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #333;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+        
+        .form-group input:focus, 
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00fffc;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #00fffc, #fc00ff);
+            color: #000;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s;
+            width: 100%;
+            font-size: 1.1rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 255, 252, 0.4);
+        }
+        
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            margin-top: 40px;
+            border-top: 1px solid #fc00ff;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .price-card {
+                width: 100%;
+            }
+            
+            .order-form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="hologram-effect"></div>
+            <h1>PANEL BY KIZARU</h1>
+            <p class="subtitle">Toko Panel Terpercaya dan Berkualitas</p>
+        </header>
+        
+        <div class="contact-info">
+            <p><strong>Kontak Admin:</strong> <a href="https://wa.me/6289512593943" target="_blank">089512593943</a></p>
+            <p><strong>Nomor Dana:</strong> 089512593943</p>
+            <p>Silahkan hubungi admin jika ada pertanyaan atau masalah</p>
+        </div>
+        
+        <div class="price-lists">
+            <div class="price-card">
+                <h3>PAKET PANEL</h3>
+                <div class="price-item">
+                    <span>1GB</span>
+                    <span>1K</span>
+                </div>
+                <div class="price-item">
+                    <span>2GB</span>
+                    <span>2K</span>
+                </div>
+                <div class="price-item">
+                    <span>3GB</span>
+                    <span>3K</span>
+                </div>
+                <div class="price-item">
+                    <span>4GB</span>
+                    <span>4K</span>
+                </div>
+                <div class="price-item">
+                    <span>5GB</span>
+                    <span>5K</span>
+                </div>
+                <div class="price-item">
+                    <span>6GB</span>
+                    <span>6K</span>
+                </div>
+                <div class="price-item">
+                    <span>7GB</span>
+                    <span>7K</span>
+                </div>
+                <div class="price-item">
+                    <span>8GB</span>
+                    <span>8K</span>
+                </div>
+                <div class="price-item">
+                    <span>9GB</span>
+                    <span>9K</span>
+                </div>
+                <div class="price-item">
+                    <span>UNLI</span>
+                    <span>20K</span>
+                </div>
+            </div>
+            
+            <div class="price-card">
+                <h3>RESELLER PANEL</h3>
+                <div class="price-item">
+                    <span>Reseller Private</span>
+                    <span>10K</span>
+                </div>
+                <div class="price-item">
+                    <span>Reseller Public</span>
+                    <span>5K</span>
+                </div>
+                <div class="price-item">
+                    <span>Admin Panel</span>
+                    <span>15K</span>
+                </div>
+                <div class="price-item">
+                    <span>PT Panel</span>
+                    <span>20K</span>
+                </div>
+                <div class="price-item">
+                    <span>Owner Panel</span>
+                    <span>25K</span>
+                </div>
+            </div>
+            
+            <div class="price-card">
+                <h3>PAKET JASTEB</h3>
+                <div class="price-item">
+                    <span>5K</span>
+                    <span>99+ RESS</span>
+                </div>
+                <div class="price-item">
+                    <span>7K</span>
+                    <span>100+ RESS</span>
+                </div>
+                <div class="price-item">
+                    <span>8K</span>
+                    <span>200+ RESS</span>
+                </div>
+                <div class="price-item">
+                    <span>9K</span>
+                    <span>300+ RESS</span>
+                </div>
+                <div class="price-item">
+                    <span>10K</span>
+                    <span>400+ RESS</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="order-form">
+            <h2>FORM PEMESANAN</h2>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="name">Nama Lengkap</label>
+                    <input type="text" id="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="whatsapp">Nomor WhatsApp</label>
+                    <input type="text" id="whatsapp" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="product">Produk yang Dipilih</label>
+                    <select id="product" required>
+                        <option value="">-- Pilih Produk --</option>
+                        <optgroup label="Paket Panel">
+                            <option value="1GB">1GB - 1K</option>
+                            <option value="2GB">2GB - 2K</option>
+                            <option value="3GB">3GB - 3K</option>
+                            <option value="4GB">4GB - 4K</option>
+                            <option value="5GB">5GB - 5K</option>
+                            <option value="6GB">6GB - 6K</option>
+                            <option value="7GB">7GB - 7K</option>
+                            <option value="8GB">8GB - 8K</option>
+                            <option value="9GB">9GB - 9K</option>
+                            <option value="UNLI">UNLI - 20K</option>
+                        </optgroup>
+                        <optgroup label="Reseller Panel">
+                            <option value="Reseller Private">Reseller Private - 10K</option>
+                            <option value="Reseller Public">Reseller Public - 5K</option>
+                            <option value="Admin Panel">Admin Panel - 15K</option>
+                            <option value="PT Panel">PT Panel - 20K</option>
+                            <option value="Owner Panel">Owner Panel - 25K</option>
+                        </optgroup>
+                        <optgroup label="Paket Jasteb">
+                            <option value="Jasteb 5K">5K - 99+ RESS</option>
+                            <option value="Jasteb 7K">7K - 100+ RESS</option>
+                            <option value="Jasteb 8K">8K - 200+ RESS</option>
+                            <option value="Jasteb 9K">9K - 300+ RESS</option>
+                            <option value="Jasteb 10K">10K - 400+ RESS</option>
+                        </optgroup>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="payment">Metode Pembayaran</label>
+                    <select id="payment" required>
+                        <option value="">-- Pilih Pembayaran --</option>
+                        <option value="DANA">DANA (089512593943)</option>
+                        <option value="OVO">OVO</option>
+                        <option value="Gopay">Gopay</option>
+                        <option value="Bank Transfer">Bank Transfer</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="proof">Upload Bukti Transfer (Wajib)</label>
+                    <input type="file" id="proof" accept="image/*" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="notes">Catatan (Optional)</label>
+                    <textarea id="notes" rows="3"></textarea>
+                </div>
+                
+                <button type="submit" class="btn">PESAN SEKARANG</button>
+            </form>
+        </div>
+        
+        <a href="https://wa.me/6289512593943" class="whatsapp-btn" target="_blank">💬</a>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 PANEL BY KIZARU. All Rights Reserved.</p>
+    </footer>
+    
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Ambil data form
+            const name = document.getElementById('name').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const product = document.getElementById('product').value;
+            const payment = document.getElementById('payment').value;
+            const notes = document.getElementById('notes').value;
+            const proof = document.getElementById('proof').files[0];
+            
+            // Validasi
+            if (!name || !whatsapp || !product || !payment || !proof) {
+                alert('Harap lengkapi semua data yang diperlukan!');
+                return;
+            }
+            
+            // Buat pesan untuk dikirim ke WhatsApp
+            let message = `Halo Admin Panel by Kizaru,\n\n`;
+            message += `Saya ingin memesan produk berikut:\n\n`;
+            message += `Nama: ${name}\n`;
+            message += `WhatsApp: ${whatsapp}\n`;
+            message += `Produk: ${product}\n`;
+            message += `Pembayaran: ${payment}\n`;
+            message += `Catatan: ${notes || '-'}\n\n`;
+            message += `Saya sudah mengirim bukti transfer. Mohon diproses ya. Terima kasih!`;
+            
+            // Encode pesan untuk URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Redirect ke WhatsApp dengan pesan
+            window.location.href = `https://wa.me/6289512593943?text=${encodedMessage}`;
+            
+            // Untuk upload file, sebenarnya perlu backend
+            // Ini hanya simulasi untuk langsung redirect ke WhatsApp
+            // Di implementasi nyata, perlu backend untuk handle file upload
+        });
+    </script>
+</body>
+</html>
